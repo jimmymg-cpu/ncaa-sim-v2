@@ -1,0 +1,5 @@
+{
+  "name": "JJ NCAASIM2026",
+  "description": "A high-fidelity, video-game style NCAA basketball simulator using Monte Carlo methods to predict outcomes based on efficiency metrics, star power, and chaos factors.",
+  "requestFramePermissions": []
+}
