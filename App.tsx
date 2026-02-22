@@ -59,11 +59,11 @@ const ScheduleList: React.FC<{
   return (
     <div className="flex flex-col h-full bg-slate-900/50 border border-white/5 rounded-lg overflow-hidden">
       <div className="bg-slate-950/80 p-4 border-b border-white/5 flex justify-between items-center sticky top-0 z-20 backdrop-blur-md">
-         <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+         <h4 className="text-sm md:text-xs font-bold text-slate-400 uppercase tracking-wider">
           Daily Slate ({games.length})
         </h4>
         <div className="flex items-center gap-2">
-           <span className="text-xs font-mono text-slate-500">ODDS: ESPN BET</span>
+           <span className="text-sm md:text-xs font-mono text-slate-500">ODDS: ESPN BET</span>
            <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse"></div>
         </div>
       </div>
@@ -91,19 +91,19 @@ const ScheduleList: React.FC<{
                 
                   {/* Away Team */}
                   <div className="flex flex-col items-center w-[30%] gap-1.5">
-                     <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full p-2 flex items-center justify-center border ${isSelected ? 'bg-black/40 border-cyan-500/30' : 'bg-slate-900 border-white/5'}`}>
+                     <div className={`w-14 h-14 lg:w-14 lg:h-14 rounded-full p-2 flex items-center justify-center border ${isSelected ? 'bg-black/40 border-cyan-500/30' : 'bg-slate-900 border-white/5'}`}>
                       {game.awayTeam.logo ? (
                         <img src={game.awayTeam.logo} alt={game.awayTeam.name} className="w-full h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
                       ) : (
-                        <span className="text-base font-bold text-slate-400">{game.awayTeam.abbreviation.substring(0,2)}</span>
+                        <span className="text-lg md:text-base font-bold text-slate-400">{game.awayTeam.abbreviation.substring(0,2)}</span>
                       )}
                     </div>
                     <div className="text-center">
-                       <div className={`text-base font-black font-sans leading-none ${game.awayTeam.rank || isSelected ? 'text-white' : 'text-slate-300'}`}>
+                       <div className={`text-xl md:text-base font-black font-sans leading-none ${game.awayTeam.rank || isSelected ? 'text-white' : 'text-slate-300'}`}>
                          {game.awayTeam.abbreviation}
                        </div>
                        {game.awayTeam.rank ? (
-                         <div className="text-xs text-cyan-400 font-mono font-bold mt-1">#{game.awayTeam.rank}</div>
+                         <div className="text-sm md:text-xs text-cyan-400 font-mono font-bold mt-1">#{game.awayTeam.rank}</div>
                        ) : (
                          <div className="h-4"></div>
                        )}
@@ -112,21 +112,21 @@ const ScheduleList: React.FC<{
 
                   {/* Center Info / Odds */}
                   <div className="flex flex-col items-center justify-center w-[40%] text-center gap-2">
-                     <span className="text-xs text-slate-500 font-mono font-bold uppercase tracking-wider">{game.status.replace(/ PM.*$/, ' PM').replace(/ AM.*$/, ' AM')}</span>
+                     <span className="text-sm md:text-xs text-slate-500 font-mono font-bold uppercase tracking-wider">{game.status.replace(/ PM.*$/, ' PM').replace(/ AM.*$/, ' AM')}</span>
                      
                      <div className="flex flex-col items-center gap-1.5 w-full">
                         {game.odds?.spread ? (
-                          <div className="bg-black/40 border border-white/10 rounded px-2.5 py-1.5 w-full max-w-[90px]">
-                             <div className="text-xs font-mono text-yellow-500 font-bold whitespace-nowrap text-center">
+                          <div className="bg-black/40 border border-white/10 rounded px-2.5 py-1.5 w-full max-w-[100px] md:max-w-[90px]">
+                             <div className="text-sm md:text-xs font-mono text-yellow-500 font-bold whitespace-nowrap text-center">
                                 {game.odds.spread}
                              </div>
                           </div>
                         ) : (
-                          <span className="text-xs font-mono text-slate-600">-</span>
+                          <span className="text-sm md:text-xs font-mono text-slate-600">-</span>
                         )}
                         
                         {game.odds?.overUnder && (
-                           <div className="text-xs font-mono text-slate-400">
+                           <div className="text-sm md:text-xs font-mono text-slate-400">
                               O/U <span className="text-slate-200 font-bold">{game.odds.overUnder}</span>
                            </div>
                         )}
@@ -135,19 +135,19 @@ const ScheduleList: React.FC<{
 
                   {/* Home Team */}
                   <div className="flex flex-col items-center w-[30%] gap-1.5">
-                     <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-full p-2 flex items-center justify-center border ${isSelected ? 'bg-black/40 border-rose-500/30' : 'bg-slate-900 border-white/5'}`}>
+                     <div className={`w-14 h-14 lg:w-14 lg:h-14 rounded-full p-2 flex items-center justify-center border ${isSelected ? 'bg-black/40 border-rose-500/30' : 'bg-slate-900 border-white/5'}`}>
                       {game.homeTeam.logo ? (
                         <img src={game.homeTeam.logo} alt={game.homeTeam.name} className="w-full h-full object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
                       ) : (
-                        <span className="text-base font-bold text-slate-400">{game.homeTeam.abbreviation.substring(0,2)}</span>
+                        <span className="text-lg md:text-base font-bold text-slate-400">{game.homeTeam.abbreviation.substring(0,2)}</span>
                       )}
                     </div>
                     <div className="text-center">
-                       <div className={`text-base font-black font-sans leading-none ${game.homeTeam.rank || isSelected ? 'text-white' : 'text-slate-300'}`}>
+                       <div className={`text-xl md:text-base font-black font-sans leading-none ${game.homeTeam.rank || isSelected ? 'text-white' : 'text-slate-300'}`}>
                          {game.homeTeam.abbreviation}
                        </div>
                        {game.homeTeam.rank ? (
-                         <div className="text-xs text-rose-400 font-mono font-bold mt-1">#{game.homeTeam.rank}</div>
+                         <div className="text-sm md:text-xs text-rose-400 font-mono font-bold mt-1">#{game.homeTeam.rank}</div>
                        ) : (
                          <div className="h-4"></div>
                        )}
@@ -260,17 +260,17 @@ const SimulationView: React.FC<{
         {/* Team A (Away) */}
         <div className="flex flex-col items-center justify-center z-10 w-1/3 relative">
           <div className="absolute top-0 left-1/2 -translate-x-1/2">
-             <span className="text-xs font-black uppercase tracking-widest text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-b border-b border-x border-cyan-500/20">Away</span>
+             <span className="text-sm md:text-xs font-black uppercase tracking-widest text-cyan-400 bg-cyan-950/60 px-3 py-1 rounded-b border-b border-x border-cyan-500/20">Away</span>
           </div>
-          <div className="text-7xl lg:text-9xl font-sans font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(6,182,212,0.5)] mt-6">
+          <div className="text-8xl lg:text-9xl font-sans font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(6,182,212,0.5)] mt-6">
             {result.avgScoreA}
           </div>
           <div className="flex items-center gap-3 mt-3 opacity-90">
-            {result.teamA.logoUrl && <img src={result.teamA.logoUrl} className="w-8 h-8 object-contain" />}
-            <div className="text-cyan-400 font-bold uppercase tracking-widest text-xl md:text-2xl">{result.teamA.abbrev}</div>
+            {result.teamA.logoUrl && <img src={result.teamA.logoUrl} className="w-10 h-10 md:w-8 md:h-8 object-contain" />}
+            <div className="text-cyan-400 font-bold uppercase tracking-widest text-2xl md:text-2xl">{result.teamA.abbrev}</div>
           </div>
-          <div className="text-xs text-slate-500 font-mono mt-2 flex items-center gap-1.5 bg-black/50 px-3 py-1.5 rounded">
-             <Target size={12} /> Win Prob: {(result.winProbA * 100).toFixed(1)}%
+          <div className="text-sm md:text-xs text-slate-500 font-mono mt-2 flex items-center gap-1.5 bg-black/50 px-3 py-1.5 rounded">
+             <Target size={14} className="md:w-3 md:h-3" /> Win Prob: {(result.winProbA * 100).toFixed(1)}%
           </div>
         </div>
 
@@ -282,36 +282,36 @@ const SimulationView: React.FC<{
           {(odds?.spread || odds?.overUnder) && (
              <div className="flex flex-col items-center gap-1.5 mb-2">
                 {odds.spread && (
-                    <span className="text-yellow-500 font-mono font-bold text-sm bg-yellow-950/30 px-3 py-1 rounded border border-yellow-600/30">{odds.spread}</span>
+                    <span className="text-yellow-500 font-mono font-bold text-base md:text-sm bg-yellow-950/30 px-3 py-1 rounded border border-yellow-600/30">{odds.spread}</span>
                 )}
                 {odds.overUnder && (
-                    <span className="text-slate-400 font-mono text-xs">O/U <span className="text-white font-bold">{odds.overUnder}</span></span>
+                    <span className="text-slate-400 font-mono text-sm md:text-xs">O/U <span className="text-white font-bold">{odds.overUnder}</span></span>
                 )}
              </div>
           )}
 
           <button 
              onClick={() => setViewMode('logs')}
-             className="px-4 py-2 bg-slate-800/80 hover:bg-slate-700 rounded text-xs font-mono text-cyan-400 border border-cyan-500/30 flex items-center gap-2 transition-all hover:scale-105 shadow-lg group-hover:border-cyan-400"
+             className="px-4 py-2 bg-slate-800/80 hover:bg-slate-700 rounded text-sm md:text-xs font-mono text-cyan-400 border border-cyan-500/30 flex items-center gap-2 transition-all hover:scale-105 shadow-lg group-hover:border-cyan-400"
           >
-             <List size={14} /> <span className="font-bold">VIEW LOGS</span> <span className="text-cyan-600">({result.simulationsRun})</span>
+             <List size={16} className="md:w-3.5 md:h-3.5" /> <span className="font-bold">VIEW LOGS</span> <span className="text-cyan-600">({result.simulationsRun})</span>
           </button>
         </div>
 
         {/* Team B (Home) */}
         <div className="flex flex-col items-center justify-center z-10 w-1/3 relative">
            <div className="absolute top-0 left-1/2 -translate-x-1/2">
-             <span className="text-xs font-black uppercase tracking-widest text-rose-400 bg-rose-950/60 px-3 py-1 rounded-b border-b border-x border-rose-500/20">Home</span>
+             <span className="text-sm md:text-xs font-black uppercase tracking-widest text-rose-400 bg-rose-950/60 px-3 py-1 rounded-b border-b border-x border-rose-500/20">Home</span>
           </div>
-           <div className="text-7xl lg:text-9xl font-sans font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(244,63,94,0.5)] mt-6">
+           <div className="text-8xl lg:text-9xl font-sans font-bold text-white tracking-tighter drop-shadow-[0_0_15px_rgba(244,63,94,0.5)] mt-6">
             {result.avgScoreB}
           </div>
           <div className="flex items-center gap-3 mt-3 opacity-90">
-            <div className="text-rose-400 font-bold uppercase tracking-widest text-xl md:text-2xl">{result.teamB.abbrev}</div>
-            {result.teamB.logoUrl && <img src={result.teamB.logoUrl} className="w-8 h-8 object-contain" />}
+            <div className="text-rose-400 font-bold uppercase tracking-widest text-2xl md:text-2xl">{result.teamB.abbrev}</div>
+            {result.teamB.logoUrl && <img src={result.teamB.logoUrl} className="w-10 h-10 md:w-8 md:h-8 object-contain" />}
           </div>
-          <div className="text-xs text-slate-500 font-mono mt-2 flex items-center gap-1.5 bg-black/50 px-3 py-1.5 rounded">
-             <Target size={12} /> Win Prob: {(result.winProbB * 100).toFixed(1)}%
+          <div className="text-sm md:text-xs text-slate-500 font-mono mt-2 flex items-center gap-1.5 bg-black/50 px-3 py-1.5 rounded">
+             <Target size={14} className="md:w-3 md:h-3" /> Win Prob: {(result.winProbB * 100).toFixed(1)}%
           </div>
         </div>
       </div>
@@ -356,12 +356,12 @@ const SimulationView: React.FC<{
                 const hasEvent = segment.eventLog.length > 0;
                 
                 return (
-                  <div key={idx} className={`relative flex items-center justify-between text-sm font-mono group p-2 rounded transition-colors ${hasEvent ? 'bg-white/5' : 'hover:bg-white/5'}`}>
+                  <div key={idx} className={`relative flex items-center justify-between text-base md:text-sm font-mono group p-2 rounded transition-colors ${hasEvent ? 'bg-white/5' : 'hover:bg-white/5'}`}>
                      
                      {/* Time Marker - Floating */}
                      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
                         <div className={`
-                            text-xs font-bold px-2 py-1 rounded border backdrop-blur-md shadow-lg min-w-[50px] text-center
+                            text-sm md:text-xs font-bold px-2 py-1 rounded border backdrop-blur-md shadow-lg min-w-[50px] text-center
                             ${hasEvent ? 'bg-yellow-950/80 border-yellow-600/50 text-yellow-500' : 'bg-slate-900 border-slate-700 text-slate-400'}
                         `}>
                             {segment.timeDisplay}
@@ -376,13 +376,13 @@ const SimulationView: React.FC<{
                         )}
                         
                         {/* Run Indicator Icon */}
-                        {isRun && net > 0 && <Flame size={14} className="text-cyan-400 animate-pulse drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]" />}
+                        {isRun && net > 0 && <Flame size={16} className="md:w-3.5 md:h-3.5 text-cyan-400 animate-pulse drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]" />}
                         
                         <div className="flex flex-col items-end">
-                            <span className={`text-lg ${net > 0 ? 'text-cyan-400 font-bold drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]' : 'text-slate-500'}`}>
+                            <span className={`text-xl md:text-lg ${net > 0 ? 'text-cyan-400 font-bold drop-shadow-[0_0_5px_rgba(6,182,212,0.5)]' : 'text-slate-500'}`}>
                                 {segment.scoreA}
                             </span>
-                            <span className="text-xs text-slate-600 font-bold">+{segPointsA}</span>
+                            <span className="text-sm md:text-xs text-slate-600 font-bold">+{segPointsA}</span>
                         </div>
                      </div>
 
@@ -394,21 +394,21 @@ const SimulationView: React.FC<{
                         )}
                         
                         <div className="flex flex-col">
-                            <span className={`text-lg ${net < 0 ? 'text-rose-400 font-bold drop-shadow-[0_0_5px_rgba(244,63,94,0.5)]' : 'text-slate-500'}`}>
+                            <span className={`text-xl md:text-lg ${net < 0 ? 'text-rose-400 font-bold drop-shadow-[0_0_5px_rgba(244,63,94,0.5)]' : 'text-slate-500'}`}>
                                 {segment.scoreB}
                             </span>
-                            <span className="text-xs text-slate-600 font-bold">+{segPointsB}</span>
+                            <span className="text-sm md:text-xs text-slate-600 font-bold">+{segPointsB}</span>
                         </div>
                         
                         {/* Run Indicator Icon */}
-                        {isRun && net < 0 && <Flame size={14} className="text-rose-400 animate-pulse drop-shadow-[0_0_5px_rgba(244,63,94,0.8)]" />}
+                        {isRun && net < 0 && <Flame size={16} className="md:w-3.5 md:h-3.5 text-rose-400 animate-pulse drop-shadow-[0_0_5px_rgba(244,63,94,0.8)]" />}
                      </div>
 
                      {/* Event Overlay - Neon Box */}
                      {hasEvent && (
                         <div className="absolute top-full left-1/2 -translate-x-1/2 z-20 -mt-1 w-max max-w-[90%]">
-                           <div className="bg-yellow-950/90 border border-yellow-500/40 text-yellow-300 text-xs font-bold px-2.5 py-1 rounded shadow-[0_0_15px_rgba(234,179,8,0.3)] backdrop-blur-md flex items-center gap-1.5 transform hover:scale-105 transition-transform">
-                              <Zap size={12} className="text-yellow-400 fill-yellow-400 animate-pulse" />
+                           <div className="bg-yellow-950/90 border border-yellow-500/40 text-yellow-300 text-sm md:text-xs font-bold px-2.5 py-1 rounded shadow-[0_0_15px_rgba(234,179,8,0.3)] backdrop-blur-md flex items-center gap-1.5 transform hover:scale-105 transition-transform">
+                              <Zap size={14} className="md:w-3 md:h-3 text-yellow-400 fill-yellow-400 animate-pulse" />
                               <span className="uppercase tracking-wide">{segment.eventLog[0]}</span>
                            </div>
                         </div>
@@ -726,21 +726,21 @@ export default function App() {
                        <div className="flex justify-between items-center px-4 py-8 bg-gradient-to-b from-slate-900 to-black rounded-lg border border-white/10 relative overflow-hidden">
                            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
                            <div className="z-10 flex flex-col items-center w-1/3">
-                              <img src={selectedGame.awayTeam.logo} className="w-20 h-20 object-contain mb-3" />
-                              <span className="text-2xl font-black text-white leading-none">{selectedGame.awayTeam.abbreviation}</span>
-                              <span className="text-sm font-mono text-cyan-500 font-bold mt-1">#{selectedGame.awayTeam.rank || '-'}</span>
+                              <img src={selectedGame.awayTeam.logo} className="w-24 h-24 object-contain mb-3" />
+                              <span className="text-3xl font-black text-white leading-none">{selectedGame.awayTeam.abbreviation}</span>
+                              <span className="text-base font-mono text-cyan-500 font-bold mt-1">#{selectedGame.awayTeam.rank || '-'}</span>
                            </div>
                            <div className="z-10 flex flex-col items-center w-1/3">
-                              <span className="text-4xl font-black text-slate-700 italic">VS</span>
+                              <span className="text-5xl font-black text-slate-700 italic">VS</span>
                               <div className="mt-3 flex flex-col items-center gap-1.5">
-                                {selectedGame.odds?.spread && <span className="bg-yellow-950/50 text-yellow-500 text-xs px-2.5 py-1 rounded border border-yellow-600/30 whitespace-nowrap">{selectedGame.odds.spread}</span>}
-                                {selectedGame.odds?.overUnder && <span className="text-slate-500 text-xs font-mono">O/U <span className="text-white">{selectedGame.odds.overUnder}</span></span>}
+                                {selectedGame.odds?.spread && <span className="bg-yellow-950/50 text-yellow-500 text-sm px-3 py-1.5 rounded border border-yellow-600/30 whitespace-nowrap">{selectedGame.odds.spread}</span>}
+                                {selectedGame.odds?.overUnder && <span className="text-slate-500 text-sm font-mono">O/U <span className="text-white">{selectedGame.odds.overUnder}</span></span>}
                               </div>
                            </div>
                            <div className="z-10 flex flex-col items-center w-1/3">
-                              <img src={selectedGame.homeTeam.logo} className="w-20 h-20 object-contain mb-3" />
-                              <span className="text-2xl font-black text-white leading-none">{selectedGame.homeTeam.abbreviation}</span>
-                              <span className="text-sm font-mono text-rose-500 font-bold mt-1">#{selectedGame.homeTeam.rank || '-'}</span>
+                              <img src={selectedGame.homeTeam.logo} className="w-24 h-24 object-contain mb-3" />
+                              <span className="text-3xl font-black text-white leading-none">{selectedGame.homeTeam.abbreviation}</span>
+                              <span className="text-base font-mono text-rose-500 font-bold mt-1">#{selectedGame.homeTeam.rank || '-'}</span>
                            </div>
                        </div>
                        
@@ -748,37 +748,37 @@ export default function App() {
                        <div className="bg-slate-900/50 p-6 rounded-lg border border-white/5 space-y-6">
                            <div>
                              <div className="flex justify-between mb-2">
-                               <label className="text-xs font-bold uppercase text-slate-400">Simulations</label>
-                               <span className="text-xs font-mono text-cyan-400">{config.iterations}</span>
+                               <label className="text-sm font-bold uppercase text-slate-400">Simulations</label>
+                               <span className="text-sm font-mono text-cyan-400">{config.iterations}</span>
                              </div>
                              <input 
                                type="range" min="10" max="200" step="10"
                                value={config.iterations}
                                onChange={(e) => setConfig({...config, iterations: Number(e.target.value)})}
-                               className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-cyan-500"
+                               className="w-full h-3 bg-slate-800 rounded-full appearance-none cursor-pointer accent-cyan-500"
                              />
                            </div>
                             <div>
                              <div className="flex justify-between mb-2">
-                               <label className="text-xs font-bold uppercase text-slate-400">Chaos Factor</label>
-                               <span className="text-xs font-mono text-rose-400">{(config.chaosFactor * 100).toFixed(0)}%</span>
+                               <label className="text-sm font-bold uppercase text-slate-400">Chaos Factor</label>
+                               <span className="text-sm font-mono text-rose-400">{(config.chaosFactor * 100).toFixed(0)}%</span>
                              </div>
                              <input 
                                type="range" min="0" max="0.2" step="0.01"
                                value={config.chaosFactor}
                                onChange={(e) => setConfig({...config, chaosFactor: Number(e.target.value)})}
-                               className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-rose-500"
+                               className="w-full h-3 bg-slate-800 rounded-full appearance-none cursor-pointer accent-rose-500"
                              />
                            </div>
                            
                            {errorMsg && (
-                            <div className="text-rose-400 text-xs font-bold text-center bg-rose-950/30 py-2 rounded">{errorMsg}</div>
+                            <div className="text-rose-400 text-sm font-bold text-center bg-rose-950/30 py-2 rounded">{errorMsg}</div>
                            )}
 
                            <CyberButton 
                               onClick={handleSimulate} 
                               disabled={isSimulating}
-                              className="w-full h-14 text-xl"
+                              className="w-full h-16 text-2xl"
                             >
                                {isSimulating ? 'RUNNING...' : 'SIMULATE'}
                             </CyberButton>
