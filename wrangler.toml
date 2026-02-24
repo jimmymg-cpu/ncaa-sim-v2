@@ -1,0 +1,9 @@
+name = "ncaa-sim-v2"
+main = ".open-next/worker.js"
+compatibility_date = "2026-02-01"
+compatibility_flags = ["nodejs_compat"]
+
+[site]
+bucket = ".open-next/assets"
+
+
