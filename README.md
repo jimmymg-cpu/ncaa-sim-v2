@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Hoops Simulator
 
-# Run and deploy your AI Studio app
+A comprehensive, interactive basketball simulation and projection dashboard built with Next.js, React, and Tailwind CSS. The application features a premium "Console Video Game" aesthetic with dynamic probability calculations, deep game logs, and responsive design across all devices.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/09be1880-a341-4e6c-93a3-2e9337fa7aa1
+- **Matchup Simulator**: Select from daily slates to simulate full basketball matchups.
+- **Deep Analytics**: View detailed game logs, possession-by-possession flow, and ATS (Against the Spread) / Over-Under win probabilities.
+- **Console UI Aesthetic**: Features a highly polished, stylized interface with carbon-fiber textures, glowing accents, and glassmorphic panels.
+- **Responsive Design**: Built to perform flawlessly on desktop, tablet, and mobile displays.
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- **Framework**: Next.js (App Router)
+- **Styling**: Tailwind CSS
+- **Deployment**: Cloudflare Workers (via OpenNext)
+- **Data Visualization**: Recharts
+- **Icons**: Lucide React
 
+## Live Demo & Testing
+
+Check out the fully deployed application on Cloudflare Workers here:
+👉 **[https://ncaa-sim-v2.jimmymg.workers.dev](https://ncaa-sim-v2.jimmymg.workers.dev)**
+
+**Testing Instructions:**
+1. Navigate to the URL above.
+2. Select a valid "Game Date" from the calendar input (e.g., today's date or +/- 1 day depending on scheduled games).
+3. Choose an active matchup from the Daily Slate list on the left to load the Simulation Setup.
+4. Review the dynamic Win Probabilities, ATS (Against The Spread), and Over/Under calculations.
+5. Click **"SIMULATE MATCHUP"** to view real-time log-style play-by-play generation.
+
+## Development
+
+To run the application locally:
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open `http://localhost:3000` in your browser.
+
+## Deployment
+
+This project uses [OpenNext](https://opennext.js.org/) for seamless deployment to Cloudflare Workers. 
+
+To deploy:
+```bash
+npm run build
+npm run build:worker
+npx wrangler deploy --minify
+```

@@ -1,6 +1,1 @@
-{
-  "/_global-error/page": "/_global-error",
-  "/_not-found/page": "/_not-found",
-  "/api/health/route": "/api/health",
-  "/page": "/"
-}
+{"/api/health/route":"/api/health","/_not-found/page":"/_not-found","/page":"/"}

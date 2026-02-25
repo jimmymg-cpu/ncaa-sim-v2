@@ -20,10 +20,7 @@ module.exports = {
                 'console-red': '#dc2626',
                 'console-surface': '#1a1a1a',
             },
-            backgroundImage: {
-                'court-texture': "url('https://www.transparenttextures.com/patterns/wood-pattern.png')",
-                'carbon-texture': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
-            }
+
         }
     },
     plugins: [],
